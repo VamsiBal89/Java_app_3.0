@@ -10,7 +10,7 @@ pipeline{
         choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
         string(name: 'ImageName', description: "name of the docker build", defaultValue: 'javapp')
         string(name: 'ImageTag', description: "tag of the docker build", defaultValue: 'v1')
-        string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'praveensingam1994')
+        string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'vamsibal')
     }
 
     stages{
@@ -77,7 +77,7 @@ pipeline{
          when { expression {  params.action == 'create' } }
             steps{
                script{
-                   sh 'curl -X PUT -u admin -T target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://172.17.0.1:8082/artifactory/example-repo-local/'
+                   sh 'curl -X PUT -u "admin:x;JNkZs]5D6A.Jn" -T target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://172.17.0.1:8082/artifactory/example-repo-local/'
                }
             }
         }
